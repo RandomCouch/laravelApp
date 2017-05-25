@@ -51,16 +51,6 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-'mysql' => array(
-			'driver'    => 'mysql',
-			'host'      => getenv('IP'),
-			'database'  => 'c9',
-			'username'  => getenv('C9_USER'),
-			'password'  => '',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-		),
 
         'mysql' => [
             'driver' => 'mysql',
