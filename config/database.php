@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => getenv('IP'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => 'c9',
-            'username' => getenv('C9_USER'),
-            'password' => '',
+            'database' => env('DB_DATABASE', 'default'),
+            'username' => env('DB_USERNAME', 'default'),
+            'password' => env('DB_PASSWORD',''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
