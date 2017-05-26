@@ -4,6 +4,16 @@ This project was developped in c9.io and Laravel 5.2 therefore I had to edit the
 
 Unlike the API project, this one has a visual web interface to view and edit the data involved.
 
+## Installing
+
+After cloning this project, you must run
+```
+composer install
+```
+Then set up your database details in the .env file which can be found in the root folder
+
+Populate your database by importing the db.sql file located in the root folder.
+
 ## Links
 
 ### Home
