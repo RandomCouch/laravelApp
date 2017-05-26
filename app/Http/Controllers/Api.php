@@ -68,14 +68,18 @@ class Api extends Controller
 					$query = 'SELECT blog_posts.*, users.username FROM blog_posts INNER JOIN users ON blog_posts.author=users.id WHERE blog_posts.author='. $typeID;
 					$posts = \DB::select($query);
 					if(!empty($posts)){
-					$username = $posts[0]->username;
-					$extraTitle = "by " . $username;
-					return view('blog', ['title' => 'Posts by ' . $username, 'posts' => $posts, 'extraTitle' => $extraTitle]);
+						$username = $posts[0]->username;
+						$extraTitle = "by " . $username;
+						return view('blog', ['title' => 'Posts by ' . $username, 'posts' => $posts, 'extraTitle' => $extraTitle]);
 					}
 				}else if($type == "p"){
 					$query = 'SELECT blog_posts.*, users.username FROM blog_posts INNER JOIN users ON blog_posts.author=users.id WHERE blog_posts.id='. $typeID;
 					$posts = \DB::select($query);
-					return view('viewPost', ['title' => 'View Post', 'post' => $posts[0]]);
+					if(!empty($posts)){
+						return view('viewPost', ['title' => 'View Post', 'post' => $posts[0]]);
+					}else{
+						return view('errors.404');
+					}
 				}else {
 					$query = 'SELECT blog_posts.*, users.username FROM blog_posts INNER JOIN users ON blog_posts.author=users.id';
 				}
