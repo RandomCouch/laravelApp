@@ -1,46 +1,40 @@
-# Laravel JSON Api demo
+# Laravel App demo
 
 This project was developped in c9.io therefore I had to edit the config/database.php configuration file in order to connect to c9 local workspace database. Please edit this file accordingly when you install it in order to connect to your database.
 
-## Routes
+Unlike the API project, this one has a visual web interface to view and edit the data involved.
 
-### GET /users
+## Links
+
+### Home
     
-Returns an array of all users including the label of their role, their address information and the number of blog posts they have.
+Basic homepage
     
-### GET /users/[UserID]
+### Users
 
-Returns a specific user's information, [UserID] must be numeric.
-    
-### GET /blog_posts
+Displays a list of all the users with minimal information
 
-Returns an array of all blog posts
-    
-### POST /create_blog_post
+#### View (in users table)
+Displays this specific user's complete information
+##### View all posts by this user (in user/[id] page)
+Displays a list of all blog posts by this user
+##### Edit (pencil icon in the user/[id] page)
+Returns a form to edit this user, which will then redirect to view user page unless there were errors.
 
-Creates a blog post, all fields are required.
+### Blog
 
-#### Parameters
-| variable | definition |
-| -------- | ------------------- | 
-| author   | Represents the id of the user who is creating this blog post |
-| title    | The title of this blog post |
-| content  | The content of this blog post |
+Displays a list of all the blog posts minus the "updated_at" date.
 
-### POST /edit_user/[UserID]
-
-Edits a user's information, including their role and address information. [UserID] must be numeric and is required. All POST fields are also required.
-
-#### Parameters
-| variable | definition |
-| -------- | ------------------- | 
-| username   | The user's new username |
-| user_roles_id    | The numeric representation of this user's role: 1 = Admin, 2 = Publisher, 3 = Public User |
-| email  | The user's new email |
-| address | The user's new address |
-| province | The user's new province |
-| city | The user's new city |
-| country | The user's new country |
-| postal_code | The user's new postal code |
+#### Create Blog Post 
+Returns a form to create a new form, which will redirect to view post page unless there were errors.
+#### View post (icon in posts list)
+Displays more information about this specific post.
 
 
+## Notes
+
+I've had to change some things in laravel's structure in order to get this project as clean as I would like it to be. Here is a list of my changes:
+
+1. I've created an .htaccess file in the root folder to better serve css and js files inside the public folder
+2. I've renamed server.php to index.php in order for the request to automatically load the app
+3. I've removed Csrf token verification
