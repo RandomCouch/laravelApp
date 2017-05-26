@@ -67,9 +67,11 @@ class Api extends Controller
 				if($type == "u"){
 					$query = 'SELECT blog_posts.*, users.username FROM blog_posts INNER JOIN users ON blog_posts.author=users.id WHERE blog_posts.author='. $typeID;
 					$posts = \DB::select($query);
+					if(!empty($posts)){
 					$username = $posts[0]->username;
 					$extraTitle = "by " . $username;
 					return view('blog', ['title' => 'Posts by ' . $username, 'posts' => $posts, 'extraTitle' => $extraTitle]);
+					}
 				}else if($type == "p"){
 					$query = 'SELECT blog_posts.*, users.username FROM blog_posts INNER JOIN users ON blog_posts.author=users.id WHERE blog_posts.id='. $typeID;
 					$posts = \DB::select($query);
