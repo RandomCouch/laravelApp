@@ -1,6 +1,6 @@
 # Laravel App demo
 
-This project was developped in c9.io therefore I had to edit the config/database.php configuration file in order to connect to c9 local workspace database. Please edit this file accordingly when you install it in order to connect to your database.
+This project was developped in c9.io and Laravel 5.2 therefore I had to edit the config/database.php configuration file in order to connect to c9 local workspace database. Please edit this file accordingly when you install it in order to connect to your database.
 
 Unlike the API project, this one has a visual web interface to view and edit the data involved.
 
